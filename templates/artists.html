@@ -1,0 +1,39 @@
+{% extends "layout.html" %} {% block fixed %}
+
+<div id="fixed-images">
+  {% for i in artists["items"] %} <img src="{{ i["images"][0]["url"] }}" alt="">
+  {% endfor %}
+</div>
+
+{% endblock %} {% block main %}
+
+<nav class="fullsection">
+  <nav class="navsection">
+    <h1>{{ time }}</h1>
+  </nav>
+
+  <nav class="mainsection">
+    <ol>
+      {% for i in artists["items"] %}
+
+      <div class="listcard">
+        <div class="cardimg">
+          <img src="{{ i["images"][0]["url"] }}" alt="">
+        </div>
+
+        <div class="cardinfo">
+          <div class="cardartistinfo">
+            <li id="songname">{{ i["name"] }}</li>
+          </div>
+          <div class="cardinfolink">
+            <a href="{{ i["external_urls"]["spotify"] }}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </ol>
+  </nav>
+</nav>
+
+{% endblock %}
